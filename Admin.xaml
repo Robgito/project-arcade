@@ -1,0 +1,267 @@
+﻿<Window x:Class="Project_3___Arcade.Admin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:Project_3___Arcade"
+        mc:Ignorable="d"
+        Title="Admin" Height="600" Width="900" WindowStartupLocation="CenterScreen" Background="Transparent" WindowStyle="None" AllowsTransparency="True" Cursor="\Cursor\coincursor.cur"  Loaded="Window_Loaded">
+    <Border x:Name="MainBorder" CornerRadius="20" BorderThickness="3" Background="#0f0b2e">
+        <Border.BorderBrush>
+            <LinearGradientBrush x:Name="BorderGradient" StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#BA55D3" Offset="0"/>
+                <GradientStop Color="#0f0b2e" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Grid x:Name="GridAdmin">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition Height=".5*"/>
+                <RowDefinition />
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label x:Name="lblClose" Content="X" Foreground="White" HorizontalAlignment="Right" Margin="0,0,15,10" FontSize="20" FontFamily="courier new" MouseDown="lblClose_MouseDown" Cursor="Hand" Grid.Column="55"/>
+            <ListBox Name="lbGebruikers" Grid.ColumnSpan="3" Grid.RowSpan="8" Margin="10" SelectionChanged="lbGebruikers_SelectionChanged" FontFamily="Liberation Mono" />
+            <Button x:Name="btnBerichtenUsers" Content="Berichten Gebruikers" Grid.ColumnSpan="2" Grid.Column="4" Grid.Row="15" Click="btnBerichtenUsers_Click" Margin="10" Foreground="White">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#BA55D3"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#4aaada"/>
+                                            <Setter Property="Foreground" Value="#BA55D3"/>
+                                            <!-- Change the color here -->
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnHoofdmenu" Content="Hoofdmenu" Grid.ColumnSpan="3" Grid.Row="15" Grid.Column="0" Click="btnHoofdmenu_Click" Margin="10" Foreground="White">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#BA55D3"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#4aaada"/>
+                                            <Setter Property="Foreground" Value="#BA55D3"/>
+                                            <!-- Change the color here -->
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Label Content="UserID: "  Grid.Column="3" FontSize="16" VerticalAlignment="Center" Margin="10 0" Foreground="White"/>
+            <TextBlock Name="txtID" Grid.Column="4" FontSize="16" Margin="10" Foreground="White"/>
+            <Label Content="Naam: " Grid.Row="1" Grid.Column="3" FontSize="16" VerticalAlignment="Center" Margin="10 0" Foreground="White"/>
+            <TextBox Name="txtNaam"  Grid.Row="1" Grid.Column="4" Grid.ColumnSpan="2" FontSize="16" Margin="10" />
+            <Label Content="Paswoord: " Grid.Row="2" Grid.Column="3" FontSize="16" VerticalAlignment="Center" Margin="10 0" Foreground="White"/>
+            <PasswordBox Name="txtPaswoord"  Grid.Row="2" Grid.Column="4" Grid.ColumnSpan="2" FontSize="16" Margin="10" />
+            <Label Content="Email: " Grid.Row="3" Grid.Column="3" FontSize="16" VerticalAlignment="Center" Margin="10 0" Foreground="White"/>
+            <TextBox Name="txtEmail"  Grid.Row="3" Grid.Column="4" Grid.ColumnSpan="2" FontSize="16" Margin="10" />
+            <Label Content="Credits: " Grid.Row="4" Grid.Column="3" FontSize="16" VerticalAlignment="Center" Margin="10 0" Foreground="White"/>
+            <xctk:IntegerUpDown x:Name="nudCredits" Minimum="0" Maximum="9999" TextAlignment="Left" Grid.Row="4" Grid.Column="4" Grid.ColumnSpan="2" FontSize="16" Margin="10"/>
+            <Label Content="Rol: " Grid.Row="5" Grid.Column="3" FontSize="16" VerticalAlignment="Center" Margin="10 0" Foreground="White"/>
+            <StackPanel Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="3" Orientation="Horizontal" VerticalAlignment="Center" Margin="20 0">
+                <RadioButton Name="rdoAdmin" Content="Administrator" FontSize="16" Margin="10" VerticalContentAlignment="Center" Foreground="White"/>
+                <RadioButton Name="rdoBeheerder" Content="Beheerder" FontSize="16" Margin="10" VerticalContentAlignment="Center" Foreground="White"/>
+                <RadioButton Name="rdoGebruiker" Content="Gebruiker" FontSize="16" Margin="10" VerticalContentAlignment="Center" Foreground="White"/>
+            </StackPanel>
+            <Label Content="Avatar: " Grid.Row="7" Grid.Column="3" FontSize="16" VerticalAlignment="Center" Margin="10 0" Foreground="White"/>
+            <Image Name="imgAvatar"  Grid.Row="7" Grid.Column="4" Margin="10" />
+            <Button Name="btnAvatar" Content="Selecteer avatar" Grid.Row="7" Grid.Column="5" Margin="10" Click="btnAvatar_Click" Foreground="White">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#BA55D3"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#4aaada"/>
+                                            <Setter Property="Foreground" Value="#BA55D3"/>
+                                            <!-- Change the color here -->
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnAanmaken" Content="Aanmaken" Grid.Row="8" Margin="10" Click="btnAanmaken_Click" Foreground="White">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#BA55D3"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#4aaada"/>
+                                            <Setter Property="Foreground" Value="#BA55D3"/>
+                                            <!-- Change the color here -->
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnWijzigen" Content="Wijzigen" Grid.Column="1" Grid.Row="8"  Margin="10" Click="btnWijzigen_Click" Foreground="White">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#BA55D3"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#4aaada"/>
+                                            <Setter Property="Foreground" Value="#BA55D3"/>
+                                            <!-- Change the color here -->
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnVerwijderen" Content="Verwijderen" Grid.Column="2" Grid.Row="8" Margin="10" Click="btnVerwijderen_Click" Foreground="White">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#BA55D3"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#4aaada"/>
+                                            <Setter Property="Foreground" Value="#BA55D3"/>
+                                            <!-- Change the color here -->
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnResetTeller" Content="Reset teller" Grid.Column="3" Grid.Row="8" Margin="10" Click="btnResetTeller_Click" Foreground="White">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#BA55D3"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#4aaada"/>
+                                            <Setter Property="Foreground" Value="#BA55D3"/>
+                                            <!-- Change the color here -->
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnExcel" Content="Excel" Grid.Column="4" Grid.Row="8" Margin="10" Click="btnExcel_Click" Foreground="White">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#BA55D3"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#4aaada"/>
+                                            <Setter Property="Foreground" Value="#BA55D3"/>
+                                            <!-- Change the color here -->
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button x:Name="btnWord" Content="Word" Grid.Column="5" Grid.Row="8" Margin="10" Click="btnWord_Click" Foreground="White">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#BA55D3"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#4aaada"/>
+                                            <Setter Property="Foreground" Value="#BA55D3"/>
+                                            <!-- Change the color here -->
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

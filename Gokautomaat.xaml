@@ -1,0 +1,83 @@
+﻿<Window xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="Project_3___Arcade.Gokautomaat"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
+        xmlns:local="clr-namespace:Project_3___Arcade"
+        mc:Ignorable="d"
+        Title="Gokautomaat"  Height="570" Width="400" WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True" Background="Transparent" Cursor="\Cursor\coincursor.cur" Loaded="Window_Loaded">
+    <Border x:Name="MainBorder" CornerRadius="20" BorderThickness="3" Background="Transparent">
+        <!--<Border.BorderBrush>
+            <LinearGradientBrush x:Name="BorderGradient">
+                <GradientStop Color="OrangeRed"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>-->
+        <Grid x:Name="MainGrid" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border x:Name="BorderForFlicker" BorderBrush="OrangeRed" BorderThickness="4" CornerRadius="20" Grid.ColumnSpan="5" Grid.RowSpan="8"/>
+            <Border CornerRadius="20" BorderThickness="3" Grid.ColumnSpan="5" Grid.RowSpan="8">
+                <Border.Background>
+                    <ImageBrush ImageSource="Images/slotmachine4.png"/>
+                </Border.Background>
+            </Border>
+            <Label x:Name="lblClose" Content="X" Grid.Column="4" Foreground="MidnightBlue" HorizontalAlignment="Right" Margin="0,0,15,10" FontSize="20" FontFamily="courier new" MouseDown="lblClose_MouseDown" Cursor="Hand"/>
+            <Label  x:Name="lblCredits" Content="CREDITS: " Foreground="MidnightBlue"  VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,2,0,0" Grid.ColumnSpan="2" FontFamily="Courier New" FontWeight="Bold" FontSize="16"/>
+            <Label x:Name="lblHeader" Content="TREK AAN DE HENDEL" Foreground="OrangeRed" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="3"  VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,35,0,0" FontSize="18" FontFamily="Courier New" FontWeight="Bold">
+                <Label.Style>
+                    <Style TargetType="Label">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" AutoReverse="True"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+            <!--<Image x:Name="imgSlotMachine"  Grid.RowSpan="8" Grid.ColumnSpan="5" Source="Images/slotmachine4.png" Height="570" Width="400"/>-->
+            <Image x:Name="img1" Grid.Row="3" Grid.Column="1" Source="Images/seven.png" Margin="31,6,0,6"/>
+            <Image x:Name="img2" Grid.Row="3" Grid.Column="2" Source="Images/seven.png" Margin="16,6,15,6"/>
+            <Image x:Name="img3" Grid.Row="3" Grid.Column="3" Source="Images/seven.png" Margin="0,6,31,6"/>
+            <!--<Button x:Name="btnPull" Content="Pull" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnPull_Click" Grid.Column="4" Grid.Row="2" Margin="30,19,0,0" Cursor="Hand" Background="Transparent" FontWeight="Bold" Height="23"/>-->
+            <Button x:Name="btnPull" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnPull_Click" Grid.Column="4" Grid.Row="2" Margin="32,19,0,0" Cursor="Hand" FontWeight="Bold" Height="119" BorderBrush="Transparent" Background="Transparent" BorderThickness="0" Width="22" RenderTransformOrigin="0.534,0.196" Grid.RowSpan="2">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="25">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+            <StackPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top">
+                <StackPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Orientation="Horizontal">
+                    <Label Content="Credits inzetten:" HorizontalAlignment="Center" Foreground="White" FontFamily="Courier New" FontSize="16"/>
+                    <xctk:IntegerUpDown x:Name="nudCredits" Value="1" Minimum="1" Maximum="100" TextAlignment="Center"  Grid.Row="1" Width="65"  Foreground="White"  Background="Transparent" BorderThickness="0,0,0,2" LostFocus="nudCredits_LostFocus"/>
+                </StackPanel>
+                <Label x:Name="lblResultaat" Foreground="OrangeRed" FontSize="14" RenderTransformOrigin="0.499,-0.1" HorizontalAlignment="Center" />
+            </StackPanel>
+            <Image x:Name="gifWinnaar" gif:ImageBehavior.AnimatedSource="Images/money.gif" Grid.Row="2" Grid.RowSpan="6" Margin="5,25,4,6" Grid.ColumnSpan="5" Visibility="Hidden"/>
+            <Image x:Name="gifCoinRegen" gif:ImageBehavior.AnimatedSource="Images/coinRegenOnder.gif" Grid.Row="0" Grid.RowSpan="8" Margin="-24,-10,-24,0" Grid.ColumnSpan="5" Visibility="Hidden"/>
+            <Image x:Name="gifJackpot" gif:ImageBehavior.AnimatedSource="Images/Jackpot1.gif" Grid.RowSpan="4" Margin="57,16,61,46" RenderTransformOrigin="0.526,0.529" Grid.ColumnSpan="5" Visibility="Hidden"/>
+        </Grid>
+    </Border>
+</Window>

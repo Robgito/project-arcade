@@ -1,0 +1,116 @@
+﻿<Window x:Class="Project_3___Arcade.CharacterSelectie"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_3___Arcade"
+        mc:Ignorable="d"
+        Title="CharacterSelectie" Height="450" Width="500" WindowStartupLocation="Manual" WindowStyle="None" Cursor="\Cursor\coincursor.cur" AllowsTransparency="True" Background="Transparent">
+    <Border x:Name="MainBorder" CornerRadius="20" BorderThickness="3" Background="#0f0b2e">
+        <Border.BorderBrush>
+            <LinearGradientBrush x:Name="BorderGradient" StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#BA55D3" Offset="0"/>
+                <GradientStop Color="#0f0b2e" Offset="1"/>  
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Grid Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="100"/>
+
+                <RowDefinition Height="auto"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="lblClose" Content="X" Foreground="White" HorizontalAlignment="Right" Margin="0,0,15,10" FontSize="20" FontFamily="courier new" MouseDown="lblClose_MouseDown" Cursor="Hand" Grid.Column="3"/>
+
+            <!-- Afbeeldingen start -->
+
+            <Border x:Name="border1" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" BorderThickness="3" BorderBrush="Transparent">
+                <Image x:Name="imgProfiel1" Source="\Images\profiel1.png"  MouseDown="Image_MouseDown"/>
+            </Border>
+            <Border x:Name="border2" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" BorderThickness="3" BorderBrush="Transparent">
+                <Image x:Name="imgProfiel2" Source="\Images\profiel2.png" MouseDown="imgProfiel2_MouseDown"/>
+            </Border>
+            <Border x:Name="border3" Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" BorderThickness="3" BorderBrush="Transparent">
+                <Image x:Name="imgProfiel3" Source="\Images\profiel3.png" MouseDown="imgProfiel3_MouseDown"/>
+            </Border>
+            <Border x:Name="border4" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" BorderThickness="3" BorderBrush="Transparent">
+                <Image x:Name="imgProfiel4" Source="\Images\profiel4.png" MouseDown="imgProfiel4_MouseDown"/>
+            </Border>
+            <Border x:Name="border5" Grid.Row="2" Grid.Column="4" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" BorderThickness="3" BorderBrush="Transparent">
+                <Image x:Name="imgProfiel5" Source="\Images\profiel5.png" MouseDown="imgProfiel5_MouseDown"/>
+            </Border>
+            <Border x:Name="border6" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" BorderThickness="3" BorderBrush="Transparent">
+                <Image x:Name="imgProfiel6" Source="\Images\profiel6.png" MouseDown="imgProfiel6_MouseDown"/>
+            </Border>
+            <Border x:Name="border7" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" BorderThickness="3" BorderBrush="Transparent">
+                <Image x:Name="imgProfiel7" Source="\Images\profiel7.png" MouseDown="imgProfiel7_MouseDown"/>
+            </Border>
+            <Border x:Name="border8" Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" BorderThickness="3" BorderBrush="Transparent">
+                <Image x:Name="imgProfiel8" Source="\Images\profiel8.png" MouseDown="imgProfiel8_MouseDown"/>
+            </Border>
+            <Border x:Name="border9" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" BorderThickness="3" BorderBrush="Transparent">
+                <Image x:Name="imgProfiel9" Source="\Images\profiel9.png" MouseDown="imgProfiel9_MouseDown"/>
+            </Border>
+            <Border x:Name="border10" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" BorderThickness="3" BorderBrush="Transparent">
+                <Image x:Name="imgProfiel10" Source="\Images\profiel10.png" MouseDown="imgProfiel10_MouseDown"/>
+            </Border>
+            <Border x:Name="border11" Grid.Row="3" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" BorderThickness="3" BorderBrush="Transparent">
+                <Image x:Name="imgProfiel11" Source="\Images\profiel11.png" MouseDown="imgProfiel11_MouseDown"/>
+            </Border>
+            <Border x:Name="border12" Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="20" BorderThickness="3" BorderBrush="Transparent">
+                <Image x:Name="imgProfiel12" Source="\Images\profiel12.jpg" MouseDown="imgProfiel12_MouseDown"/>
+            </Border>
+            
+            <!-- Afbeeldingen end -->
+            
+            <Button x:Name="btnCharacter" Content="Opslaan" Width="250" Height="50" Foreground="White" FontFamily="Courier New" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="4" VerticalAlignment="Center" Margin="0,5,0,0" Click="btnCharacter_Click">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#BA55D3"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#4aaada"/>
+                                            <Setter Property="Foreground" Value="#BA55D3"/>
+                                            <!-- Change the color here -->
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <Label x:Name="lblLogin" Content="KIES JE CHARACTER" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="28" Margin="0,10,0,0" FontFamily="Courier New">
+                <Label.Style>
+                    <Style TargetType="Label">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" AutoReverse="True"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+        </Grid>
+    </Border>
+</Window>

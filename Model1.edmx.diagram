@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="48fdfe3287c34efeb11ad69e174c9f58" Name="Diagram1">
+        <EntityTypeShape EntityType="ArcadeDBModel.Gebruiker" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ArcadeDBModel.ScoreEndlessRunner" Width="1.5" PointX="9.625" PointY="0.75" />
+        <EntityTypeShape EntityType="ArcadeDBModel.ScoreFlappyBird" Width="1.5" PointX="7.5" PointY="0.75" />
+        <EntityTypeShape EntityType="ArcadeDBModel.ScoreSnake" Width="1.5" PointX="3.25" PointY="0.75" />
+        <EntityTypeShape EntityType="ArcadeDBModel.ScoreTetris" Width="1.5" PointX="5.5" PointY="0.75" />
+        <EntityTypeShape EntityType="ArcadeDBModel.ScoreZombieShooter" Width="1.5" PointX="11.625" PointY="0.75" />
+        <AssociationConnector Association="ArcadeDBModel.FK_ScoresEndlessRunner_Gebruikers" />
+        <AssociationConnector Association="ArcadeDBModel.FK_ScoresFlappyBird_Gebruikers" />
+        <AssociationConnector Association="ArcadeDBModel.FK_ScoresSnake_Gebruikers" />
+        <AssociationConnector Association="ArcadeDBModel.FK_ScoresTetris_Gebruikers" />
+        <AssociationConnector Association="ArcadeDBModel.FK_ScoresZombieShooter_Gebruikers" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

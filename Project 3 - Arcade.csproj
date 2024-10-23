@@ -1,0 +1,607 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1A9D9128-2AA7-4DBD-A17A-C4B5C223965E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Project_3___Arcade</RootNamespace>
+    <AssemblyName>Project 3 - Arcade</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.HashCode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.HashCode.1.1.1\lib\net461\Microsoft.Bcl.HashCode.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Encodings.Web.8.0.0\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=8.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.Json.8.0.2\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=2.0.0.0, Culture=neutral, PublicKeyToken=9e7cd3b544a090dc, processorArchitecture=MSIL">
+      <HintPath>packages\WpfAnimatedGif.2.0.2\lib\net40\WpfAnimatedGif.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.6.0\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.6.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.6.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.6.0\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.6.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>packages\Extended.Wpf.Toolkit.4.6.0\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AanpassingGebruiker.xaml.cs">
+      <DependentUpon>AanpassingGebruiker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.xaml.cs">
+      <DependentUpon>Admin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Beheerder.xaml.cs">
+      <DependentUpon>Beheerder.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BerichtenUsers.xaml.cs">
+      <DependentUpon>BerichtenUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BestandInfo.cs" />
+    <Compile Include="Block.cs" />
+    <Compile Include="BlockQueue.cs" />
+    <Compile Include="Bullet.cs" />
+    <Compile Include="CharacterSelectie.xaml.cs">
+      <DependentUpon>CharacterSelectie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ContactSupport.xaml.cs">
+      <DependentUpon>ContactSupport.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Cooldown.cs" />
+    <Compile Include="Credits.cs" />
+    <Compile Include="CreditStore.xaml.cs">
+      <DependentUpon>CreditStore.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Direction.cs" />
+    <Compile Include="EndlessRunner.xaml.cs">
+      <DependentUpon>EndlessRunner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="FlappyBirdGame.xaml.cs">
+      <DependentUpon>FlappyBirdGame.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GameGrid.cs" />
+    <Compile Include="GameState.cs" />
+    <Compile Include="GameState1S.cs" />
+    <Compile Include="Gebruiker.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GebruikerPlus.cs" />
+    <Compile Include="Gokautomaat.xaml.cs">
+      <DependentUpon>Gokautomaat.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GridValue.cs" />
+    <Compile Include="IBlock.cs" />
+    <Compile Include="Images.cs" />
+    <Compile Include="JBlock.cs" />
+    <Compile Include="LBlock.cs" />
+    <Compile Include="Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Muziek.cs" />
+    <Compile Include="OBlock.cs" />
+    <Compile Include="Position.cs" />
+    <Compile Include="Position1S.cs" />
+    <Compile Include="Registreren.xaml.cs">
+      <DependentUpon>Registreren.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SBlock.cs" />
+    <Compile Include="ScoreEndlessRunner.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScoreEndlessRunnerPlus.cs" />
+    <Compile Include="ScoreFlappyBird.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScoreFlappyBirdPlus.cs" />
+    <Compile Include="ScoreSnake.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScoreSnakePlus.cs" />
+    <Compile Include="ScoreTetris.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScoreTetrisPlus.cs" />
+    <Compile Include="ScoreZombieShooter.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ScoreZombieShooterPlus.cs" />
+    <Compile Include="Snake.xaml.cs">
+      <DependentUpon>Snake.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpeelFlappyBird.xaml.cs">
+      <DependentUpon>SpeelFlappyBird.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpeelRunner.xaml.cs">
+      <DependentUpon>SpeelRunner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpeelScherm.xaml.cs">
+      <DependentUpon>SpeelScherm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpeelSnake.xaml.cs">
+      <DependentUpon>SpeelSnake.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SpeelZombieShooter.xaml.cs">
+      <DependentUpon>SpeelZombieShooter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TBlock.cs" />
+    <Compile Include="Tetris.xaml.cs">
+      <DependentUpon>Tetris.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WheelOfFortune.xaml.cs">
+      <DependentUpon>WheelOfFortune.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WordExcelStatic.cs" />
+    <Compile Include="ZBlock.cs" />
+    <Compile Include="ZombieShooterGame.xaml.cs">
+      <DependentUpon>ZombieShooterGame.xaml</DependentUpon>
+    </Compile>
+    <Page Include="AanpassingGebruiker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Admin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Beheerder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BerichtenUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CharacterSelectie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ContactSupport.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreditStore.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EndlessRunner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FlappyBirdGame.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Gokautomaat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Hoofdmenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Datamanager.cs" />
+    <Compile Include="Hoofdmenu.xaml.cs">
+      <DependentUpon>Hoofdmenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Registreren.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Snake.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpeelFlappyBird.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpeelRunner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpeelScherm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpeelSnake.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SpeelZombieShooter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Tetris.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WheelOfFortune.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ZombieShooterGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Resource Include="Resources\password.ttf" />
+    <Resource Include="AssetsSN\DroidSansMono.ttf" />
+    <None Include="Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\arcadebg.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Cursor\coincursor.cur" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\DefaultAvatar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.8">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.8 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="ZombieImages\ammo-Image.png" />
+    <Resource Include="ZombieImages\dead.png" />
+    <Resource Include="ZombieImages\down.png" />
+    <Resource Include="ZombieImages\downHans.png" />
+    <Resource Include="ZombieImages\HansHoofd.png" />
+    <Resource Include="ZombieImages\left.png" />
+    <Resource Include="ZombieImages\leftHans.png" />
+    <Resource Include="ZombieImages\right.png" />
+    <Resource Include="ZombieImages\rightHans.png" />
+    <Resource Include="ZombieImages\up.png" />
+    <Resource Include="ZombieImages\upHans.png" />
+    <Resource Include="ZombieImages\zdown.png" />
+    <Resource Include="ZombieImages\zdownAbdul.png" />
+    <Resource Include="ZombieImages\zdownBart.png" />
+    <Resource Include="ZombieImages\zdownBernd.png" />
+    <Resource Include="ZombieImages\zdownCedric.png" />
+    <Resource Include="ZombieImages\zdownGilles.png" />
+    <Resource Include="ZombieImages\zdownIllya.png" />
+    <Resource Include="ZombieImages\zdownJeffrey.png" />
+    <Resource Include="ZombieImages\zdownRobin.png" />
+    <Resource Include="ZombieImages\zdownTycho.png" />
+    <Resource Include="ZombieImages\zleft.png" />
+    <Resource Include="ZombieImages\zleftAbdul.png" />
+    <Resource Include="ZombieImages\zleftBart.png" />
+    <Resource Include="ZombieImages\zleftBernd.png" />
+    <Resource Include="ZombieImages\zleftCedric.png" />
+    <Resource Include="ZombieImages\zleftGilles.png" />
+    <Resource Include="ZombieImages\zleftIllya.png" />
+    <Resource Include="ZombieImages\zleftJeffrey.png" />
+    <Resource Include="ZombieImages\zleftRobin.png" />
+    <Resource Include="ZombieImages\zleftTycho.png" />
+    <Resource Include="ZombieImages\zright.png" />
+    <Resource Include="ZombieImages\zrightAbdul.png" />
+    <Resource Include="ZombieImages\zrightBart.png" />
+    <Resource Include="ZombieImages\zrightBernd.png" />
+    <Resource Include="ZombieImages\zrightCedric.png" />
+    <Resource Include="ZombieImages\zrightGilles.png" />
+    <Resource Include="ZombieImages\zrightIllya.png" />
+    <Resource Include="ZombieImages\zrightJeffrey.png" />
+    <Resource Include="ZombieImages\zrightRobin.png" />
+    <Resource Include="ZombieImages\zrightTycho.png" />
+    <Resource Include="ZombieImages\zup.png" />
+    <Resource Include="ZombieImages\zupAbdul.png" />
+    <Resource Include="ZombieImages\zupBart.png" />
+    <Resource Include="ZombieImages\zupBernd.png" />
+    <Resource Include="ZombieImages\zupCedric.png" />
+    <Resource Include="ZombieImages\zupGilles.png" />
+    <Resource Include="ZombieImages\zupIllya.png" />
+    <Resource Include="ZombieImages\zupJeffrey.png" />
+    <Resource Include="ZombieImages\zupRobin.png" />
+    <Resource Include="ZombieImages\zupTycho.png" />
+    <Resource Include="Assets\Background.png" />
+    <Resource Include="Assets\Block-Empty.png" />
+    <Resource Include="Assets\Block-I.png" />
+    <Resource Include="Assets\Block-J.png" />
+    <Resource Include="Assets\Block-L.png" />
+    <Resource Include="Assets\Block-O.png" />
+    <Resource Include="Assets\Block-S.png" />
+    <Resource Include="Assets\Block-T.png" />
+    <Resource Include="Assets\Block-Z.png" />
+    <Resource Include="Assets\Icon.ico" />
+    <Resource Include="Assets\TileBlue.png" />
+    <Resource Include="Assets\TileCyan.png" />
+    <Resource Include="Assets\TileEmpty.png" />
+    <Resource Include="Assets\TileGreen.png" />
+    <Resource Include="Assets\TileOrange.png" />
+    <Resource Include="Assets\TilePurple.png" />
+    <Resource Include="Assets\TileRed.png" />
+    <Resource Include="Assets\TileYellow.png" />
+    <Resource Include="Images\CoinPack1.png" />
+    <Resource Include="Images\coinPack2.png" />
+    <Resource Include="Images\coinPack3.png" />
+    <Resource Include="Images\coinPack4.png" />
+    <Resource Include="Images\radLogo.png" />
+    <Resource Include="Images\segaLogo.png" />
+    <Resource Include="Images\snakeLogo.jpg" />
+    <Resource Include="Images\wwzLogo.jpg" />
+    <Resource Include="Images\startBtn.png" />
+    <Resource Include="AssetsSN\Body.png" />
+    <Resource Include="AssetsSN\DeadBody.png" />
+    <Resource Include="AssetsSN\DeadHead.png" />
+    <Resource Include="AssetsSN\Empty.png" />
+    <Resource Include="AssetsSN\Food.png" />
+    <Resource Include="AssetsSN\Head.png" />
+    <Resource Include="AssetsSN\icon.ico" />
+    <Resource Include="Images\bell.png" />
+    <Resource Include="Images\cherrys.png" />
+    <Resource Include="Images\diamond.png" />
+    <Resource Include="Images\orange.png" />
+    <Resource Include="Images\seven.png" />
+    <Resource Include="Images\slotmachine4.png" />
+    <Resource Include="Images\money.gif" />
+    <Resource Include="ImagesRun\background.gif" />
+    <Resource Include="ImagesRun\newRunner_01.gif" />
+    <Resource Include="ImagesRun\newRunner_02.gif" />
+    <Resource Include="ImagesRun\newRunner_03.gif" />
+    <Resource Include="ImagesRun\newRunner_04.gif" />
+    <Resource Include="ImagesRun\newRunner_05.gif" />
+    <Resource Include="ImagesRun\newRunner_06.gif" />
+    <Resource Include="ImagesRun\newRunner_07.gif" />
+    <Resource Include="ImagesRun\newRunner_08.gif" />
+    <Resource Include="ImagesRun\obstacle.png" />
+    <Resource Include="Images\flappyBird.jpg" />
+    <Resource Include="Images\jackpot.png" />
+    <Resource Include="Images\runnerGameLogo.jpg" />
+    <Resource Include="Images\coinRegenOnder.gif" />
+    <Resource Include="Images\jackpot1.gif" />
+    <Resource Include="ImagesFlappy\clouds.png" />
+    <Resource Include="ImagesFlappy\clouds2.png" />
+    <Resource Include="ImagesFlappy\pipeBottom.png" />
+    <Resource Include="ImagesFlappy\pipeTop.png" />
+    <Resource Include="ImagesFlappy\flappyHans.png" />
+    <Resource Include="ImagesFlappy\flappyBird.png" />
+    <Resource Include="Images\logoOptie4Transp.png" />
+    <Resource Include="Images\silent.png" />
+    <Resource Include="Images\sound.png" />
+    <Content Include="Resource\deleteLine.wav" />
+    <Content Include="Resource\gameOver.wav" />
+    <Resource Include="Images\profiel1.png" />
+    <Resource Include="Images\profiel10.png" />
+    <Resource Include="Images\profiel2.png" />
+    <Resource Include="Images\profiel3.png" />
+    <Resource Include="Images\profiel4.png" />
+    <Resource Include="Images\profiel5.png" />
+    <Resource Include="Images\profiel6.png" />
+    <Resource Include="Images\profiel7.png" />
+    <Resource Include="Images\profiel8.png" />
+    <Resource Include="Images\profiel9.png" />
+    <Resource Include="Images\profiel12.jpg" />
+    <Resource Include="Images\profiel11.png" />
+    <Content Include="SoundsRun\Jumping.wav" />
+    <Content Include="SoundsRun\RunOver.wav" />
+    <Content Include="SoundsSN\hiss.wav" />
+    <Content Include="SoundsSN\SgameOver.wav" />
+    <Content Include="Videos\arcadeIntroFreeCoins.mp4">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Images\cyberpunk.gif" />
+    <Content Include="Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>9</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Excel\" />
+    <Folder Include="Word\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

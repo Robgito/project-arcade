@@ -1,0 +1,169 @@
+﻿<Window x:Class="Project_3___Arcade.CreditStore"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_3___Arcade"
+        mc:Ignorable="d"
+        Title="CreditStore" Height="650" Width="600" Loaded="Window_Loaded" WindowStartupLocation="CenterScreen" Background="Transparent" WindowStyle="None" AllowsTransparency="True" Cursor="\Cursor\coincursor.cur">
+
+    <Border x:Name="MainBorder" CornerRadius="20" BorderThickness="3" Background="#0f0b2e">
+        <Border.BorderBrush>
+            <LinearGradientBrush x:Name="BorderGradient" StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#BA55D3" Offset="0"/>
+                <GradientStop Color="#0f0b2e" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="55"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="lblClose" Content="X" Grid.Column="1" Foreground="White" HorizontalAlignment="Right" Margin="0,0,15,0" FontSize="20" FontFamily="courier new" MouseDown="lblClose_MouseDown"  Cursor="Hand"/>
+
+            <Label Grid.ColumnSpan="2" Name="lblCurrentCredits" HorizontalAlignment="Center"/>
+            <StackPanel Grid.Row="1" Margin="15" Orientation="Vertical">
+                <Image Height="135" Source="\Images\CoinPack1.png"/>
+                <Label Content="4 credits" HorizontalAlignment="Center" Foreground="White" FontFamily="Courier New" FontSize="14"/>
+                <Label Content="" FontSize="10" FontFamily="Courier New"/>
+                <Button Name="btnCreds1" Height="35" Content="€5,99" Click="btnCreds1_Click" Foreground="White" FontFamily="Courier New" FontSize="14">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#BA55D3"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#4aaada"/>
+                                                <Setter Property="Foreground" Value="#BA55D3"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.Row="1" Grid.Column="1" Margin="15" Orientation="Vertical" >
+                <Image Height="135" Source="\Images\coinPack2.png"/>
+                <Label Content="10 credits" HorizontalAlignment="Center" Foreground="White" FontFamily="Courier New" FontSize="14"/>
+                <Label Content="+1 credit!" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="0 0 0 10" Foreground="#BA55D3" FontFamily="Courier New"/>
+                <Button Name="btnCreds2" Height="35" Content="€14,99" Click="btnCreds2_Click" Foreground="White" FontFamily="Courier New" FontSize="14">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#BA55D3"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#4aaada"/>
+                                                <Setter Property="Foreground" Value="#BA55D3"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Margin="15" Orientation="Vertical">
+                <Image Height="135" Source="\Images\coinPack3.png"/>
+                <Label Content="20 credits" HorizontalAlignment="Center" Foreground="White" FontFamily="Courier New" FontSize="14"/>
+                <Label Content="+3 credit!" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="0 0 0 10" Foreground="#BA55D3" FontFamily="Courier New"/>
+                <Button Name="btnCreds3" Height="35" Content="€29,99" Click="btnCreds3_Click" Foreground="White" FontFamily="Courier New" FontSize="14">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#BA55D3"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#4aaada"/>
+                                                <Setter Property="Foreground" Value="#BA55D3"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+            <StackPanel Grid.Row="2" Grid.Column="1" Margin="15" Orientation="Vertical">
+                <Image Height="135" Source="\Images\coinPack4.png"/>
+                <Label Content="50 credits" HorizontalAlignment="Center" Foreground="White" FontFamily="Courier New" FontSize="14"/>
+                <Label Content="+10 credits!" FontSize="10" HorizontalAlignment="Center" VerticalAlignment="Top" Padding="0 0 0 10" Foreground="#BA55D3" FontFamily="Courier New"/>
+                <Button Name="btnCreds4" Height="35" Content="€74,99" Click="btnCreds4_Click" Foreground="White" FontFamily="Courier New" FontSize="14">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#BA55D3"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#4aaada"/>
+                                                <Setter Property="Foreground" Value="#BA55D3"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+            <CheckBox Name="checkToestemming" IsChecked="False" Grid.Row="3" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" Cursor="Hand" FontFamily="Courier New">
+                "Hierbij geef ik aan dat ik meerderjarig ben en genoeg geld verdien."
+            </CheckBox>
+            
+            <Button x:Name="btnHoofdmenu" Content="Hoofdmenu" Grid.Row="4" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="120" Margin="10" Click="btnHoofdmenu_Click" Foreground="White" FontFamily="Courier New" FontSize="14">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="#BA55D3"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="#4aaada"/>
+                                            <Setter Property="Foreground" Value="#BA55D3"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
+        </Grid>
+    </Border>
+</Window>

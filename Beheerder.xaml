@@ -1,0 +1,186 @@
+﻿<Window xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"  x:Class="Project_3___Arcade.Beheerder"     
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project_3___Arcade"
+        mc:Ignorable="d"
+                Title="Beheerder" Height="810" Width="375" WindowStartupLocation="CenterScreen" Background="Transparent" WindowStyle="None" AllowsTransparency="True" Cursor="\Cursor\coincursor.cur" Loaded="Window_Loaded">
+    <!--<Window.DataContext>
+        <local:Gebruiker/>
+    </Window.DataContext>-->
+    <Border x:Name="MainBorder" CornerRadius="20" BorderThickness="3" Background="#0f0b2e">
+        <Border.BorderBrush>
+            <LinearGradientBrush x:Name="BorderGradient" StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#BA55D3" Offset="1"/>
+                <GradientStop Color="#0f0b2e" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+        <Grid Margin="0,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="130"/>
+                <RowDefinition Height="110"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+                <RowDefinition Height="75"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="lblClose" Content="X" Foreground="White" HorizontalAlignment="Right" Margin="0,0,15,10" FontSize="20" FontFamily="courier new" MouseDown="lblClose_MouseDown" Cursor="Hand"/>
+
+            <!--<Image Source="Images/arcadebg.jpg" Grid.Row="1"/>-->
+            <Label x:Name="lblOverzichtGebruikers" Content="GEBRUIKERSBEHEER" Grid.Row="1" Foreground="White" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" Margin="0,0,0,10" FontFamily="Courier New">
+                <Label.Style>
+                    <Style TargetType="Label">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" AutoReverse="True"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+            <StackPanel Grid.Row="2" Margin="0,10,0,0">
+                <Label Content="Selecteer Gebruiker:" HorizontalAlignment="Center" Foreground="#BA55D3" FontWeight="Bold" FontFamily="Courier New" FontSize="14" />
+                <ComboBox x:Name="cmbGebruikers" Grid.Row="1" Width="300" Foreground="#BA55D3" BorderThickness="0,0,0,2" SelectionChanged="cmbGebruikers_SelectionChanged" FontFamily="Courier New" FontSize="14">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Gebruikersnaam}" Foreground="Purple"/>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Margin="0,10,0,0">
+                <Label Content="Avatar:" HorizontalAlignment="Center" Foreground="#BA55D3" FontWeight="Bold" FontFamily="Courier New" FontSize="14" />
+                <StackPanel Orientation="Horizontal" >
+                    <Image x:Name="imgAvatar"  Height="80" Width="80" Margin="50,5,0,0"/>
+                    <Button x:Name="btnAvatar" Width="100" Height="35" Foreground="White" FontFamily="Courier New" Click="btnAvatar_Click" HorizontalAlignment="Right" Margin="70,0,40,0" FontSize="14">
+                        <Button.Style>
+                            <Style TargetType="Button">
+                                <Setter Property="Background" Value="#BA55D3"/>
+                                <Setter Property="Template">
+                                    <Setter.Value>
+                                        <ControlTemplate TargetType="Button">
+                                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                                <TextBlock TextWrapping="Wrap" Text="Avatar Wijzigen" TextAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                            <ControlTemplate.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#4aaada"/>
+                                                    <Setter Property="Foreground" Value="#BA55D3"/>
+                                                    <!-- Change the color here -->
+                                                </Trigger>
+                                            </ControlTemplate.Triggers>
+                                        </ControlTemplate>
+                                    </Setter.Value>
+                                </Setter>
+                            </Style>
+                        </Button.Style>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Grid.Row="4">
+                <Label x:Name="lblError" Grid.Row="4" Foreground="Red" HorizontalAlignment="Center" FontFamily="Courier New" FontSize="14"/>
+                <Label x:Name="lblError2" Grid.Row="4" Foreground="Red" HorizontalAlignment="Center" FontFamily="Courier New" FontSize="14"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Margin="0,30,0,0" VerticalAlignment="Center">
+                <Label Content="Gebruikersrol:" HorizontalAlignment="Center" Foreground="#BA55D3" FontWeight="Bold" FontFamily="Courier New" FontSize="14" />
+                <TextBox x:Name="txtRol" IsEnabled="False" Width="300" CaretBrush="#BA55D3" Foreground="#BA55D3" Background="Transparent" BorderThickness="0,0,0,2" FontSize="14" FontFamily="Courier New"/>
+            </StackPanel>
+            <StackPanel Grid.Row="5" Margin="0,10,0,0">
+                <Label Content="Gebruikersnaam:" HorizontalAlignment="Center" Foreground="#BA55D3" FontWeight="Bold" FontFamily="Courier New" FontSize="14"/>
+                <TextBox x:Name="txtGebruikersnaam" Grid.Row="1" Width="300" CaretBrush="#BA55D3" Foreground="#BA55D3" Background="Transparent" BorderThickness="0,0,0,2" Text="{Binding Path=SelectedItem.GebruikersnaamValidation, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, ElementName=cmbGebruikers}" FontFamily="Courier New" FontSize="14"/>
+                <Label x:Name="lblGebruikersnaamError" Content="{Binding (Validation.Errors)[0].ErrorContent, ElementName=txtGebruikersnaam}" Foreground="Red" Width="300" FontFamily="Courier New" FontSize="14"/>
+            </StackPanel>
+            <StackPanel Grid.Row="6" Margin="0,10,0,0">
+                <Label Content="Paswoord:" HorizontalAlignment="Center" Foreground="#BA55D3" FontWeight="Bold" FontFamily="Courier New" FontSize="14"/>
+                <TextBox x:Name="txtPaswoord" Width="300" CaretBrush="#BA55D3" Foreground="#BA55D3" Background="Transparent" BorderThickness="0,0,0,2" 
+                         Text="{Binding Path=SelectedItem.PaswoordValidation, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, ElementName=cmbGebruikers}"
+                               FontFamily="pack://application:,,,/Resources/#password" FontSize="14">
+                    <!--Text="{Binding Path=SelectedItem.Paswoord, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, ElementName=cmbGebruikers}">-->
+
+                    <TextBox.InputBindings>
+                        <KeyBinding Command="ApplicationCommands.NotACommand"
+                Key="C"
+                Modifiers="Control" />
+                        <KeyBinding Command="ApplicationCommands.NotACommand"
+                Key="X"
+                Modifiers="Control" />
+                    </TextBox.InputBindings>
+                    <TextBox.ContextMenu>
+                        <ContextMenu Visibility="Collapsed" />
+                    </TextBox.ContextMenu>
+
+
+                </TextBox>
+                <Label x:Name="lblPaswoordError" Content="{Binding (Validation.Errors)[0].ErrorContent, ElementName=txtPaswoord}" Foreground="Red" Width="300" FontSize="14" FontFamily="Courier New"/>
+            </StackPanel>
+            <StackPanel Grid.Row="7" Margin="0,10,0,0">
+                <Label Content="E-mail:" HorizontalAlignment="Center" Foreground="#BA55D3" FontWeight="Bold" FontFamily="Courier New" FontSize="14"/>
+                <TextBox x:Name="txtEmail" Grid.Row="1" Width="300" CaretBrush="#BA55D3" Foreground="#BA55D3" Background="Transparent" BorderThickness="0,0,0,2" Text="{Binding Path=SelectedItem.EmailValidation, ValidatesOnDataErrors=True, UpdateSourceTrigger=PropertyChanged, ElementName=cmbGebruikers}" FontFamily="Courier New" FontSize="14"/>
+                <Label x:Name="lblEmailError" Content="{Binding (Validation.Errors)[0].ErrorContent, ElementName=txtEmail}" Foreground="Red" Width="300" FontFamily="Courier New" FontSize="14"/>
+            </StackPanel>
+            <StackPanel Grid.Row="8" Margin="0,10,0,0">
+                <Label Content="Credits:" HorizontalAlignment="Center" Foreground="#BA55D3" FontWeight="Bold" FontFamily="Courier New" FontSize="14"/>
+                <xctk:IntegerUpDown x:Name="nudCredits"  Minimum="0" Maximum="9999" TextAlignment="Left" Grid.Row="1" Width="300"  Foreground="#BA55D3" Background="Transparent" BorderThickness="0,0,0,2" LostFocus="nudCredits_LostFocus" FontFamily="Courier New" FontSize="14"/>
+            </StackPanel>
+            
+            <StackPanel Grid.Row="9" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                
+                <Button x:Name="btnHoofdmenu" Content="Hoofdmenu" Width="125" Height="40" Foreground="White" FontFamily="Courier New" Click="btnHoofdmenu_Click" Margin="20,0,40,-3" FontSize="14">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#BA55D3"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#4aaada"/>
+                                                <Setter Property="Foreground" Value="#BA55D3"/>
+                                                <!-- Change the color here -->
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btnOpslaan" Grid.Row="9" Content="Opslaan" Width="125" Height="40" Foreground="White" FontFamily="Courier New" Click="btnOpslaan_Click" HorizontalAlignment="Center" Margin="0,0,20,0" FontSize="14">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#BA55D3"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#4aaada"/>
+                                                <Setter Property="Foreground" Value="#BA55D3"/>
+                                                <!-- Change the color here -->
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>

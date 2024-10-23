@@ -1,0 +1,395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ArcadeDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Gebruikers">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Gebruikersnaam" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Paswoord" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Credits" Type="int" Nullable="false" />
+          <Property Name="Admin" Type="bit" Nullable="false" />
+          <Property Name="Beheerder" Type="bit" Nullable="false" />
+          <Property Name="PaswoordTeller" Type="int" Nullable="false" />
+          <Property Name="Avatar" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ScoresEndlessRunner">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Name="ScoreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="FKGebruiker" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScoresFlappyBird">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Name="ScoreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="FKGebruiker" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScoresSnake">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Name="ScoreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="FKGebruiker" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScoresTetris">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Name="ScoreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="FKGebruiker" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ScoresZombieShooter">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Name="ScoreID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Score" Type="int" Nullable="false" />
+          <Property Name="FKGebruiker" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_ScoresEndlessRunner_Gebruikers">
+          <End Role="Gebruikers" Type="Self.Gebruikers" Multiplicity="1" />
+          <End Role="ScoresEndlessRunner" Type="Self.ScoresEndlessRunner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruikers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ScoresEndlessRunner">
+              <PropertyRef Name="FKGebruiker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoresFlappyBird_Gebruikers">
+          <End Role="Gebruikers" Type="Self.Gebruikers" Multiplicity="1" />
+          <End Role="ScoresFlappyBird" Type="Self.ScoresFlappyBird" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruikers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ScoresFlappyBird">
+              <PropertyRef Name="FKGebruiker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoresSnake_Gebruikers">
+          <End Role="Gebruikers" Type="Self.Gebruikers" Multiplicity="1" />
+          <End Role="ScoresSnake" Type="Self.ScoresSnake" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruikers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ScoresSnake">
+              <PropertyRef Name="FKGebruiker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoresTetris_Gebruikers">
+          <End Role="Gebruikers" Type="Self.Gebruikers" Multiplicity="1" />
+          <End Role="ScoresTetris" Type="Self.ScoresTetris" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruikers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ScoresTetris">
+              <PropertyRef Name="FKGebruiker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoresZombieShooter_Gebruikers">
+          <End Role="Gebruikers" Type="Self.Gebruikers" Multiplicity="1" />
+          <End Role="ScoresZombieShooter" Type="Self.ScoresZombieShooter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruikers">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ScoresZombieShooter">
+              <PropertyRef Name="FKGebruiker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ArcadeDBModelStoreContainer">
+          <EntitySet Name="Gebruikers" EntityType="Self.Gebruikers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoresEndlessRunner" EntityType="Self.ScoresEndlessRunner" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoresFlappyBird" EntityType="Self.ScoresFlappyBird" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoresSnake" EntityType="Self.ScoresSnake" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoresTetris" EntityType="Self.ScoresTetris" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ScoresZombieShooter" EntityType="Self.ScoresZombieShooter" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ScoresEndlessRunner_Gebruikers" Association="Self.FK_ScoresEndlessRunner_Gebruikers">
+            <End Role="Gebruikers" EntitySet="Gebruikers" />
+            <End Role="ScoresEndlessRunner" EntitySet="ScoresEndlessRunner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoresFlappyBird_Gebruikers" Association="Self.FK_ScoresFlappyBird_Gebruikers">
+            <End Role="Gebruikers" EntitySet="Gebruikers" />
+            <End Role="ScoresFlappyBird" EntitySet="ScoresFlappyBird" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoresSnake_Gebruikers" Association="Self.FK_ScoresSnake_Gebruikers">
+            <End Role="Gebruikers" EntitySet="Gebruikers" />
+            <End Role="ScoresSnake" EntitySet="ScoresSnake" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoresTetris_Gebruikers" Association="Self.FK_ScoresTetris_Gebruikers">
+            <End Role="Gebruikers" EntitySet="Gebruikers" />
+            <End Role="ScoresTetris" EntitySet="ScoresTetris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoresZombieShooter_Gebruikers" Association="Self.FK_ScoresZombieShooter_Gebruikers">
+            <End Role="Gebruikers" EntitySet="Gebruikers" />
+            <End Role="ScoresZombieShooter" EntitySet="ScoresZombieShooter" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ArcadeDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Gebruiker">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Gebruikersnaam" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Paswoord" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Credits" Type="Int32" Nullable="false" />
+          <Property Name="Admin" Type="Boolean" Nullable="false" />
+          <Property Name="Beheerder" Type="Boolean" Nullable="false" />
+          <Property Name="PaswoordTeller" Type="Int32" Nullable="false" />
+          <Property Name="Avatar" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ScoreEndlessRunner" Relationship="ArcadeDBModel.FK_ScoresEndlessRunner_Gebruikers" FromRole="Gebruiker" ToRole="ScoresEndlessRunner" />
+          <NavigationProperty Name="ScoreFlappyBird" Relationship="ArcadeDBModel.FK_ScoresFlappyBird_Gebruikers" FromRole="Gebruiker" ToRole="ScoresFlappyBird" />
+          <NavigationProperty Name="ScoreSnake" Relationship="ArcadeDBModel.FK_ScoresSnake_Gebruikers" FromRole="Gebruiker" ToRole="ScoresSnake" />
+          <NavigationProperty Name="ScoreTetris" Relationship="ArcadeDBModel.FK_ScoresTetris_Gebruikers" FromRole="Gebruiker" ToRole="ScoresTetris" />
+          <NavigationProperty Name="ScoreZombieShooter" Relationship="ArcadeDBModel.FK_ScoresZombieShooter_Gebruikers" FromRole="Gebruiker" ToRole="ScoresZombieShooter" />
+        </EntityType>
+        <EntityContainer Name="ArcadeDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Gebruikers" EntityType="ArcadeDBModel.Gebruiker" />
+          <EntitySet Name="ScoresEndlessRunner" EntityType="ArcadeDBModel.ScoreEndlessRunner" />
+          <EntitySet Name="ScoresFlappyBird" EntityType="ArcadeDBModel.ScoreFlappyBird" />
+          <EntitySet Name="ScoresSnake" EntityType="ArcadeDBModel.ScoreSnake" />
+          <EntitySet Name="ScoresTetris" EntityType="ArcadeDBModel.ScoreTetris" />
+          <EntitySet Name="ScoresZombieShooter" EntityType="ArcadeDBModel.ScoreZombieShooter" />
+          <AssociationSet Name="FK_ScoresEndlessRunner_Gebruikers" Association="ArcadeDBModel.FK_ScoresEndlessRunner_Gebruikers">
+            <End Role="Gebruiker" EntitySet="Gebruikers" />
+            <End Role="ScoresEndlessRunner" EntitySet="ScoresEndlessRunner" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoresFlappyBird_Gebruikers" Association="ArcadeDBModel.FK_ScoresFlappyBird_Gebruikers">
+            <End Role="Gebruiker" EntitySet="Gebruikers" />
+            <End Role="ScoresFlappyBird" EntitySet="ScoresFlappyBird" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoresSnake_Gebruikers" Association="ArcadeDBModel.FK_ScoresSnake_Gebruikers">
+            <End Role="Gebruiker" EntitySet="Gebruikers" />
+            <End Role="ScoresSnake" EntitySet="ScoresSnake" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoresTetris_Gebruikers" Association="ArcadeDBModel.FK_ScoresTetris_Gebruikers">
+            <End Role="Gebruiker" EntitySet="Gebruikers" />
+            <End Role="ScoresTetris" EntitySet="ScoresTetris" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ScoresZombieShooter_Gebruikers" Association="ArcadeDBModel.FK_ScoresZombieShooter_Gebruikers">
+            <End Role="Gebruiker" EntitySet="Gebruikers" />
+            <End Role="ScoresZombieShooter" EntitySet="ScoresZombieShooter" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="ScoreEndlessRunner">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Name="ScoreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="FKGebruiker" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Gebruikers" Relationship="ArcadeDBModel.FK_ScoresEndlessRunner_Gebruikers" FromRole="ScoresEndlessRunner" ToRole="Gebruiker" />
+        </EntityType>
+        <EntityType Name="ScoreFlappyBird">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Name="ScoreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="FKGebruiker" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Gebruikers" Relationship="ArcadeDBModel.FK_ScoresFlappyBird_Gebruikers" FromRole="ScoresFlappyBird" ToRole="Gebruiker" />
+        </EntityType>
+        <EntityType Name="ScoreSnake">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Name="ScoreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="FKGebruiker" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Gebruikers" Relationship="ArcadeDBModel.FK_ScoresSnake_Gebruikers" FromRole="ScoresSnake" ToRole="Gebruiker" />
+        </EntityType>
+        <EntityType Name="ScoreTetris">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Name="ScoreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="FKGebruiker" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Gebruikers" Relationship="ArcadeDBModel.FK_ScoresTetris_Gebruikers" FromRole="ScoresTetris" ToRole="Gebruiker" />
+        </EntityType>
+        <EntityType Name="ScoreZombieShooter">
+          <Key>
+            <PropertyRef Name="ScoreID" />
+          </Key>
+          <Property Name="ScoreID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Score" Type="Int32" Nullable="false" />
+          <Property Name="FKGebruiker" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Gebruikers" Relationship="ArcadeDBModel.FK_ScoresZombieShooter_Gebruikers" FromRole="ScoresZombieShooter" ToRole="Gebruiker" />
+        </EntityType>
+        <Association Name="FK_ScoresEndlessRunner_Gebruikers">
+          <End Type="ArcadeDBModel.Gebruiker" Role="Gebruiker" Multiplicity="1" />
+          <End Type="ArcadeDBModel.ScoreEndlessRunner" Role="ScoresEndlessRunner" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruiker">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ScoresEndlessRunner">
+              <PropertyRef Name="FKGebruiker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoresFlappyBird_Gebruikers">
+          <End Type="ArcadeDBModel.Gebruiker" Role="Gebruiker" Multiplicity="1" />
+          <End Type="ArcadeDBModel.ScoreFlappyBird" Role="ScoresFlappyBird" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruiker">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ScoresFlappyBird">
+              <PropertyRef Name="FKGebruiker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoresSnake_Gebruikers">
+          <End Type="ArcadeDBModel.Gebruiker" Role="Gebruiker" Multiplicity="1" />
+          <End Type="ArcadeDBModel.ScoreSnake" Role="ScoresSnake" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruiker">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ScoresSnake">
+              <PropertyRef Name="FKGebruiker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoresTetris_Gebruikers">
+          <End Type="ArcadeDBModel.Gebruiker" Role="Gebruiker" Multiplicity="1" />
+          <End Type="ArcadeDBModel.ScoreTetris" Role="ScoresTetris" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruiker">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ScoresTetris">
+              <PropertyRef Name="FKGebruiker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ScoresZombieShooter_Gebruikers">
+          <End Type="ArcadeDBModel.Gebruiker" Role="Gebruiker" Multiplicity="1" />
+          <End Type="ArcadeDBModel.ScoreZombieShooter" Role="ScoresZombieShooter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gebruiker">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ScoresZombieShooter">
+              <PropertyRef Name="FKGebruiker" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ArcadeDBModelStoreContainer" CdmEntityContainer="ArcadeDBEntities">
+          <EntitySetMapping Name="Gebruikers">
+            <EntityTypeMapping TypeName="ArcadeDBModel.Gebruiker">
+              <MappingFragment StoreEntitySet="Gebruikers">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Gebruikersnaam" ColumnName="Gebruikersnaam" />
+                <ScalarProperty Name="Paswoord" ColumnName="Paswoord" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Credits" ColumnName="Credits" />
+                <ScalarProperty Name="Admin" ColumnName="Admin" />
+                <ScalarProperty Name="Beheerder" ColumnName="Beheerder" />
+                <ScalarProperty Name="PaswoordTeller" ColumnName="PaswoordTeller" />
+                <ScalarProperty Name="Avatar" ColumnName="Avatar" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoresEndlessRunner">
+            <EntityTypeMapping TypeName="ArcadeDBModel.ScoreEndlessRunner">
+              <MappingFragment StoreEntitySet="ScoresEndlessRunner">
+                <ScalarProperty Name="FKGebruiker" ColumnName="FKGebruiker" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="ScoreID" ColumnName="ScoreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoresFlappyBird">
+            <EntityTypeMapping TypeName="ArcadeDBModel.ScoreFlappyBird">
+              <MappingFragment StoreEntitySet="ScoresFlappyBird">
+                <ScalarProperty Name="FKGebruiker" ColumnName="FKGebruiker" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="ScoreID" ColumnName="ScoreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoresSnake">
+            <EntityTypeMapping TypeName="ArcadeDBModel.ScoreSnake">
+              <MappingFragment StoreEntitySet="ScoresSnake">
+                <ScalarProperty Name="FKGebruiker" ColumnName="FKGebruiker" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="ScoreID" ColumnName="ScoreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoresTetris">
+            <EntityTypeMapping TypeName="ArcadeDBModel.ScoreTetris">
+              <MappingFragment StoreEntitySet="ScoresTetris">
+                <ScalarProperty Name="FKGebruiker" ColumnName="FKGebruiker" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="ScoreID" ColumnName="ScoreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScoresZombieShooter">
+            <EntityTypeMapping TypeName="ArcadeDBModel.ScoreZombieShooter">
+              <MappingFragment StoreEntitySet="ScoresZombieShooter">
+                <ScalarProperty Name="FKGebruiker" ColumnName="FKGebruiker" />
+                <ScalarProperty Name="Score" ColumnName="Score" />
+                <ScalarProperty Name="ScoreID" ColumnName="ScoreID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

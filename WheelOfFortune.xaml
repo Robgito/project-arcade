@@ -1,0 +1,34 @@
+﻿<Window x:Class="Project_3___Arcade.WheelOfFortune"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="WheelOfFortune" Height="600" Width="800" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded" Background="Transparent" WindowStyle="None" AllowsTransparency="True">
+    <Grid>
+        <Grid.Clip>
+            <EllipseGeometry Center="400,300" RadiusX="200" RadiusY="200"/>
+        </Grid.Clip>
+        <MediaElement x:Name="mediaElement" LoadedBehavior="Play" Source="Videos/arcadeIntroFreeCoins.mp4" Volume="20"/>
+        <TextBlock x:Name="tbRandomNummer" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="48" Foreground="White" FontFamily="courier new" Margin="0,150,0,0"/>
+        <Button x:Name="btnClaim" Content="CLAIM" Width="125" Height="40" Foreground="White" FontFamily="Courier New" Margin="0,300,0,0" Click="btnClaim_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="#BA55D3"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#4aaada"/>
+                                        <Setter Property="Foreground" Value="#BA55D3"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>

@@ -1,0 +1,101 @@
+﻿<Window x:Class="loginscreen_games.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:loginscreen_games"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="350" WindowStartupLocation="CenterScreen" Background="Transparent" WindowStyle="None" AllowsTransparency="True" Cursor="\Cursor\coincursor.cur" Loaded="Window_Loaded">
+
+    <Border x:Name="MainBorder" CornerRadius="20" BorderThickness="3" Background="#0f0b2e">
+        <Border.BorderBrush>
+            <LinearGradientBrush x:Name="BorderGradient" StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#BA55D3" Offset="0"/>
+                <GradientStop Color="#0f0b2e" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
+
+        <Grid Margin="0,10,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="90"/>
+            </Grid.RowDefinitions>
+            <Label x:Name="lblClose" Content="X" Foreground="White" HorizontalAlignment="Right" Margin="0,0,15,10" FontSize="20" FontFamily="courier new" MouseDown="lblClose_MouseDown" Cursor="Hand"/>
+            <Image Source="Images/arcadebg.jpg" Grid.Row="1"/>
+            <Label x:Name="lblLogin" Content="LOGIN" Grid.Row="1" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="45" Margin="0,80,0,0" FontFamily="Courier New">
+                <Label.Style>
+                    <Style TargetType="Label">
+                        <Style.Triggers>
+                            <EventTrigger RoutedEvent="Loaded">
+                                <BeginStoryboard>
+                                    <Storyboard RepeatBehavior="Forever">
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity" From="1" To="0" Duration="0:0:0.5" AutoReverse="True"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </EventTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+            <Label x:Name="lblError" Grid.Row="2" Foreground="Red" HorizontalAlignment="Center"/>
+            <StackPanel Grid.Row="2" Margin="0,40,0,0">
+                <Label Content="Gebruikersnaam:" HorizontalAlignment="Center" Foreground="#BA55D3" FontWeight="Bold" FontFamily="Courier New"/>
+                <TextBox x:Name="txtUsername" Grid.Row="1" Width="300" CaretBrush="#BA55D3" Foreground="#BA55D3" Background="Transparent" BorderThickness="0,0,0,2"/>
+            </StackPanel>
+            <StackPanel Grid.Row="3" Margin="0,10,0,0">
+                <Label Content="Paswoord:" HorizontalAlignment="Center" Foreground="#BA55D3" FontWeight="Bold" FontFamily="Courier New"/>
+                <PasswordBox x:Name="txtPassword" Width="300" CaretBrush="#BA55D3" Foreground="#BA55D3" Background="Transparent" BorderThickness="0,0,0,2"/>
+            </StackPanel>
+            <StackPanel Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Button x:Name="btnLogin" Content="LOGIN" Width="125" Height="40" Foreground="White" FontFamily="Courier New" Click="btnLogin_Click" IsDefault="True">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#BA55D3"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#4aaada"/>
+                                                <Setter Property="Foreground" Value="#BA55D3"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btnRegistreren" Content="REGISTREREN" Width="125" Height="40" Foreground="White" FontFamily="Courier New" Margin="20,0,0,0" Click="btnRegistreren_Click">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="#BA55D3"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="Button">
+                                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="20">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="#4aaada"/>
+                                                <Setter Property="Foreground" Value="#BA55D3"/>
+                                                <!-- Change the color here -->
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </Button.Style>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
